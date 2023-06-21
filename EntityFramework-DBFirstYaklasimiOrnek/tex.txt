@@ -1,0 +1,33 @@
+﻿Önce paketleri kuruyoruz.
+Var olan veri tabanımızı projeye entegre edelim.
+
+paketler :
+Microsoft.entityframeworkcore
+Microsoft.entityframeworkcoresqlserver
+Microsoft.entityframeworkcore.tools
+
+ardından var olan database ile bağlantı yapacagız.
+PM> Scaffold-DbContext "Server=.;Initial Catalog = Northwind -- ne ile hangi database e baglanacagız
+
+TrustServerCertificate= True" -- sertifikasyon hatası almasın diye 
+
+Microsoft.EntityFrameWorkCore.SqlServer - OutputDir Models--  sql server la ilişkili
+models diye bir dosya olustur
+
+BAĞLANTI KODUNUN TAMAMI=
+
+PM>Scaffold-DbContext "server=.;database=Northwind;trusted_connection=true; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+bu kod ile database ile bağlantı kurduk.
+
+Bağ kurduk ama veritabanında değişiklik yaparsak baglandıgımız veri tabanını güncellemek gerekecek.
+değişiklik yaptıgımızda:
+
+PM> Scaffold-DbContext "server=.;database=Northwind;trusted_connection=true; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force
+
+bu komutla güncelledik.
+
+
+
+
+ 
